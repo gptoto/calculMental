@@ -36,9 +36,10 @@ public class LoginBean implements Serializable {
                 session.setAttribute( ATT_AUTH_SESSION, joueur );
                 authentResult = "Authentification réussie : Bienvenue "+ login;
             } else {
-                authentResult = "Authentification échouée"+ login;
+                authentResult = "Authentification échouée "+ login;
             }
         } catch (SQLException e) {
+            System.out.println(e.getMessage());
             authentResult = "Authentification échouée : Problème de connexion à la base";
         }
     }

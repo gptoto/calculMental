@@ -9,8 +9,12 @@
         <param-value>JDBC</param-value>
     </context-param>
     <context-param>
+        <param-name>DB_DRIVER</param-name>
+        <param-value>com.mysql.cj.jdbc.Driver</param-value>
+    </context-param>
+    <context-param>
         <param-name>DB_URL</param-name>
-        <param-value>jdbc:mysql://localhost:3306/jeu_calcul_mental&amp;useLegacyDatetimeCode=false&amp;serverTimezone=UTC</param-value>
+        <param-value>jdbc:mysql://localhost:3306/jeu_calcul_mental?serverTimezone=UTC</param-value>
     </context-param>
     <context-param>
         <param-name>DB_LOGIN</param-name>

@@ -12,10 +12,11 @@ public class DAOFactory {
     private static String dbPwd;
 
 
-    public static void init(ServletContext context){
+    public static void init(ServletContext context) throws ClassNotFoundException {
         mode = context.getInitParameter("DS_MODE");
         switch (mode){
             case "JDBC":
+                Class.forName( context.getInitParameter( "DB_DRIVER" ) );
                 dbUrl = context.getInitParameter("DB_URL");
                 dbLogin = context.getInitParameter("DB_LOGIN");
                 dbPwd = context.getInitParameter("DB_PWD");
@@ -31,6 +32,7 @@ public class DAOFactory {
         switch (mode){
             case "JDBC":
                 dao = new JoueurDAOJDBC(dbUrl, dbLogin, dbPwd);
+                break;
             case "JPA":
             default:
                 //TODO

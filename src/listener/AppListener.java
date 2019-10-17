@@ -16,11 +16,15 @@ public class AppListener implements ServletContextListener {
 	@Override
 	public void contextInitialized( ServletContextEvent sce ) {
 		LOGGER.log( Level.INFO, "Initialisation du contexte applicatif... " );
-		DAOFactory.init(sce.getServletContext());
+		try {
+			DAOFactory.init(sce.getServletContext());
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
 	}
 
 	@Override
 	public void contextDestroyed( ServletContextEvent sce ) {
-		LOGGER.log( Level.INFO, "Desctruction du contexte applicatif... " );
+		LOGGER.log( Level.INFO, "Destruction du contexte applicatif... " );
 	}
 }
