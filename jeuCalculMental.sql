@@ -28,6 +28,14 @@ CREATE TABLE IF NOT EXISTS joueur (
     meilleur_score FLOAT DEFAULT NULL
 ) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
 
+-- Ajout de données dans la table joueur
+/*!40000 ALTER TABLE `joueur` DISABLE KEYS */;
+INSERT INTO joueur(id, login, password, nom, prenom, pseudo, meilleur_score)
+VALUES
+    (1, 'log1', 'mdp1', 'joueur', 'un', 'joueur1', NULL);
+/*!40000 ALTER TABLE `joueur` ENABLE KEYS */;
+
+
 -- Création de la table Score
 DROP TABLE IF EXISTS score;
 CREATE TABLE IF NOT EXISTS score (
@@ -36,3 +44,7 @@ CREATE TABLE IF NOT EXISTS score (
     id_joueur int,
     CONSTRAINT FK_joueurID FOREIGN KEY (id_joueur) REFERENCES joueur(id)
 ) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
+
+/*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
+/*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
